@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Malaria Diagnostic Report</title>
+
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Diagnostic Report</h1>
+
+{% if prediction == "Uninfected" %}
+
+<div class="success">
+<h2>UNINFECTED</h2>
+<p>No malaria parasite detected</p>
+</div>
+
+{% else %}
+
+<div class="danger">
+<h2>PARASITIZED</h2>
+<p>Malaria parasite detected</p>
+</div>
+
+{% endif %}
+
+<h3>Confidence Level: {{confidence}} %</h3>
+
+<br>
+
+<h2>Analysis Details</h2>
+
+<div class="details">
+
+<p><b>Model:</b> {{model_name}}</p>
+
+<p><b>Processing Time:</b> {{processing_time}} seconds</p>
+
+<p><b>Image Quality:</b> {{image_quality}}</p>
+
+<p><b>Timestamp:</b> {{timestamp}}</p>
+
+</div>
+
+<br>
+
+<div class="disclaimer">
+
+<h3>Medical Disclaimer</h3>
+
+<p>
+This AI-based diagnostic tool is developed for research and educational purposes only.
+It should not be used as a substitute for professional medical diagnosis or treatment.
+Always consult a qualified healthcare professional for medical advice.
+</p>
+
+</div>
+
+<br>
+
+<a href="/">Analyze Another Sample</a>
+
+</div>
+
+</body>
+</html>
